@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>北海情书个人博客-博客书写</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/dist/summernote.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+    <script src="/js/totop.js"></script>
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/dist/summernote.js" type="text/javascript"></script>
+	<script src="/dist/lang/summernote-zh-CN.js" type="text/javascript"></script>
+    <script src="/js/WritingBlog.js" type="text/javascript"></script>
+	<style>.m{width:100%;margin-left:auto;margin-right:auto;}</style>
+	<script>$(function(){$('.summernote').summernote({height: 200, tabsize: 2, lang: 'zh-CN'});});</script>
+	</head>
+	<body>
+        <div class="header">
+            <div class="headerTitle">
+                <span class="Headline">北海&情书</span><br/>
+                <span class="Subheading">愿你岁月无波澜，敬我余生不悲欢。</span>
+                <!--永远别放弃自己，哪怕所有人都放弃了你-->
+            </div>
+            <div class="headerNav">
+                <ul>
+                    <a href="#"><li>首页</li></a>
+                    <a href="/blogs"><li class="checked">博客</li></a>
+                    <a href="/album"><li>相册</li></a>
+                    <a href="/aboutMe"><li>关于我</li></a>
+                    <a href="/LeavingMessage"><li>留言</li></a>
+                    <%if(state==1){%>
+                    <li>欢迎您：<%=userInfo.username%></li>
+                    <a href="/user/Out"><li>退出</li></a>
+                    <%}else{%>
+                    <a href="/user/register"><li>注册</li></a>
+                    <a href="/user/login"><li>登录</li></a>
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="MainPart">
+            <div class="MainList">
+                <input class="WriteBlogsTitle" type="text" placeholder="文章标题"/>
+                <textarea class="WriteBlogsAbstract" placeholder="文章摘要"></textarea>
+                <div class="m">
+                    <div class="summernote">文章内容</div>
+                </div>
+                <select class="WriteBlogsclassify ">
+                    <%for(let i=0;i<allClssify.length;i++){%>
+                        <option value="<%=allClssify[i].classify%>"><%=allClssify[i].classify%></option>
+                    <%}%>
+                </select><br/><br/>
+                <div class="WriteBlogsSubmit">发布</div>
+                <a href="#"><div class="WriteBlogsReturn">返回</div></a>
+            </div>
+            <div class="MainNav">
+                <input class="MainSearch" type="text" placeholder="文章名称">
+                <div class="MainNavList">
+                    <div class="MainNavListTitle">最新文章</div>
+                    <%for(let i=0;i<=5;i++){%>
+                    <div class="MainNavListBlogs">
+                        <a href='<%=allBlogs[i].src%>'>
+                            <%=allBlogs[i].title%>
+                        </a>
+                    </div>
+                    <%}%>
+                </div>
+                <div class="MainNavList">
+                    <div class="MainNavListTitle">博客专栏</div>
+                    <%for(let i=0;i<allClssify.length;i++){%>
+                    <div class="MainNavListBlogs">
+                        <a href='<%=allClssify[i].src%>'>
+                            <%=allClssify[i].classify%>
+                        </a>
+                    </div>
+                    <%}%>
+                </div>
+                <div class="MainNavList">
+                    <div class="MainNavListTitle">归档</div>
+                    <div class="MainNavListBlogs">2018年8月</div>
+                    <div class="MainNavListBlogs">2018年9月</div>
+                    <div class="MainNavListBlogs">2018年10月</div>
+                    <div class="MainNavListBlogs">2018年11月</div>
+                    <div class="MainNavListBlogs">2018年12月</div>
+                    <div class="MainNavListBlogs">2019年1月</div>
+                    <div class="MainNavListBlogs">2019年2月</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Support a lot&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="/blogs">博客</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="/album">相册</a>&nbsp;&nbsp;| &nbsp;&nbsp;
+            <a href="/LeavingMessage">留言板</a><br/>
+            本站总访问量：365413 次<br/>
+            Copyright © <a href="#">北海&情书</a>. Copyright ownership, piracy must be investigated
+        </div>
+        <div class="toTop" onclick="totop()">
+            <img src="/images/toTop.png" alt="">
+        </div>
+    </body>
+</html>

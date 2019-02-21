@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>北海情书个人博客-关于我</title>
+        <link rel="stylesheet" href="/css/blogs.css">
+        <script src="/js/totop.js"></script>
+    </head>
+    <body>
+    <div class="header">
+        <div class="headerTitle">
+            <span class="Headline">北海&情书</span><br/>
+            <span class="Subheading">愿你岁月无波澜，敬我余生不悲欢。</span>
+            <!--永远别放弃自己，哪怕所有人都放弃了你-->
+        </div>
+        <div class="headerNav">
+            <ul>
+                <a href="#"><li>首页</li></a>
+                <a href="/blogs"><li>博客</li></a>
+                <a href="/album"><li>相册</li></a>
+                <a href="/aboutMe"><li class="checked">关于我</li></a>
+                <a href="/LeavingMessage"><li>留言</li></a>
+                <%if(state==1){%>
+                <li>欢迎您：<%=userInfo.username%></li>
+                <a href="/user/Out"><li>退出</li></a>
+                <%}else{%>
+                <a href="/user/register"><li>注册</li></a>
+                <a href="/user/login"><li>登录</li></a>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+    <div class="MainPart">
+        <div class="MainList">
+            <div class="MainAboutMe">
+                <div class="MainFoot">关于</div>
+                <div class="MainAboutAuthor">
+                    <div class="MainAuthorImg">
+                        <img src="./../images/author.jpg" alt="">
+                    </div>
+                    <div class="MainCatenate">
+                        Name&nbsp;&nbsp;:&nbsp;&nbsp;北海&情书<br/>
+                        Email&nbsp;&nbsp;: &nbsp;&nbsp;979587457@qq.com<br/>
+                        CSDN&nbsp;&nbsp;:&nbsp;&nbsp;<a href="https://blog.csdn.net/Hunt_bo">Hunt_bo的博客</a><br/>
+                        Github&nbsp;&nbsp;: &nbsp;&nbsp;<a href="https://github.com/hushuaibo">北海情书</a><br/>
+                        掘金&nbsp;&nbsp;:&nbsp;&nbsp;<a href="https://juejin.im/user/5afabb73518825426726369c">北海情书</a>
+                    </div>
+                </div>
+                <div class="MainIntroduce">
+                    <div class="MainIntroduceTitle">这是什么？</div>
+                    <div class="MainIntroduceText">一个代码盒子，记录学习点滴。</div>
+                    <div class="MainIntroduceTitle">为什么会有这个？</div>
+                    <div class="MainIntroduceText">不想让生活博客被代码充斥而变了味，谈生活，不谈技术，谈技术，就不谈生活，过的纯粹些。</div>
+                    <div class="MainIntroduceTitle">要怎么做？</div>
+                    <div class="MainIntroduceText">每天好好学习之后总结点东西发上来罢了。</div>
+                    <div class="MainIntroduceTitle">我是谁？</div>
+                    <div class="MainIntroduceText">1) 性顽劣，行止不似寻常娴淑女子;</div>
+                    <div class="MainIntroduceText">2) 喜欢简洁纯粹的设计;</div>
+                    <div class="MainIntroduceText">3) 喜阅读，然于书海中徜徉多年，所获不及万分之一，深感书海无涯;</div>
+                </div>
+            </div>
+        </div>
+        <div class="MainNav">
+            <input class="MainSearch" type="text" placeholder="文章名称">
+            <div class="MainNavList">
+                <div class="MainNavListTitle">最新文章</div>
+                <%for(let i=0;i<=5;i++){%>
+                <div class="MainNavListBlogs">
+                    <a href='<%=allBlog[i].src%>'>
+                        <%=allBlog[i].title%>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <div class="MainNavList">
+                <div class="MainNavListTitle">博客专栏</div>
+                <%for(let i=0;i<allClssify.length;i++){%>
+                <div class="MainNavListBlogs">
+                    <a href='<%=allClssify[i].src%>'>
+                        <%=allClssify[i].classify%>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <div class="MainNavList">
+                <div class="MainNavListTitle">归档</div>
+                <div class="MainNavListBlogs">2018年8月</div>
+                <div class="MainNavListBlogs">2018年9月</div>
+                <div class="MainNavListBlogs">2018年10月</div>
+                <div class="MainNavListBlogs">2018年11月</div>
+                <div class="MainNavListBlogs">2018年12月</div>
+                <div class="MainNavListBlogs">2019年1月</div>
+                <div class="MainNavListBlogs">2019年2月</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Support a lot&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/blogs">博客</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/album">相册</a>&nbsp;&nbsp;| &nbsp;&nbsp;
+        <a href="/LeavingMessage">留言板</a><br/>
+        本站总访问量：365413 次<br/>
+        Copyright © <a href="#">北海&情书</a>. Copyright ownership, piracy must be investigated
+    </div>
+    <div class="toTop" onclick="totop()">
+        <img src="/images/toTop.png" alt="">
+    </div>
+    </body>
+</html>

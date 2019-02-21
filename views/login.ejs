@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>北海情书个人博客-登录</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/blogs.css">
+</head>
+<body>
+<div class="header">
+    <div class="headerTitle">
+        <span class="Headline">北海&情书</span><br/>
+        <span class="Subheading">愿你岁月无波澜，敬我余生不悲欢。</span>
+        <!--永远别放弃自己，哪怕所有人都放弃了你-->
+    </div>
+    <div class="headerNav">
+        <ul>
+            <a href="#"><li>首页</li></a>
+            <a href="/blogs"><li>博客</li></a>
+            <a href="/album"><li>相册</li></a>
+            <a href="/aboutMe"><li>关于我</li></a>
+            <a href="/LeavingMessage"><li>留言</li></a>
+            <a href="/user/register"><li>注册</li></a>
+            <a href="/user/login"><li class="checked">登录</li></a>
+        </ul>
+    </div>
+</div>
+<div class="MainForm">
+    <form action="/user/doLogin" method="post">
+        <div class="MainFormIcon"></div>
+        <div class="MainFormTitle">北海&情书个人博客</div>
+        <div class="MainFormEntry">
+            <div class="MainFormIco"><i class="fa fa-user"></i></div>
+            <input class="MainFormIpt" name="userName" type="text" placeholder="请输入用户名">
+        </div>
+        <div class="MainFormEntry">
+            <div class="MainFormIco"><i class="fa fa-unlock"></i></div>
+            <input class="MainFormIpt" name="passWord" type="password" placeholder="请输入密码">
+        </div>
+        <div class="MainFormEntry">
+            <input class="MainFormBtn" type="reset">
+            <input class="MainFormBtn" type="submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>

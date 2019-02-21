@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>北海情书个人博客-博客详情</title>
+        <link rel="stylesheet" href="/css/blogs.css">
+        <link rel="stylesheet" href="/css/blogStyle.css">
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/totop.js"></script>
+        <script>
+            $(document).ready(function () {
+                var visited = $('#visited').text();
+                var blogId = $('#blogId').text();
+                $.ajax({
+                    type: 'post',
+                    url: '/blogs/addVisited',
+                    data:{
+                        visit:visited,
+                        blogId:blogId
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body>
+    <div class="header">
+        <div class="headerTitle">
+            <span class="Headline">北海&情书</span><br/>
+            <span class="Subheading">愿你岁月无波澜，敬我余生不悲欢。</span>
+            <!--永远别放弃自己，哪怕所有人都放弃了你-->
+        </div>
+        <div class="headerNav">
+            <ul>
+                <a href="#"><li>首页</li></a>
+                <a href="/blogs"><li class="checked">博客</li></a>
+                <a href="/album"><li>相册</li></a>
+                <a href="/aboutMe"><li>关于我</li></a>
+                <a href="/LeavingMessage"><li>留言</li></a>
+                <%if(state==1){%>
+                <li>欢迎您：<%=userInfo.username%></li>
+                <a href="/user/Out"><li>退出</li></a>
+                <%}else{%>
+                <a href="/user/register"><li>注册</li></a>
+                <a href="/user/login"><li>登录</li></a>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+    <div class="MainPart">
+        <div class="MainList">
+            <div class="MainAboutMe">
+                <div class="BlogsContentTitle"><%=thisBlog.title%></div>
+                <div class="BlogsContentTime">
+                    <%=thisBlog.time%>&nbsp;&nbsp;&nbsp;
+                    <a href="/aboutMe">北海&情书</a>&nbsp;&nbsp;&nbsp;
+                    阅读量：<span id="visited"><%=thisBlog.visit%></span>
+                </div>
+                <span id="blogId" style="display: none"><%=thisBlog.blogId%></span>
+                <div class="BlogsContentText"><%-thisBlog.text%></div>
+            </div>
+        </div>
+        <div class="MainNav">
+            <input class="MainSearch" type="text" placeholder="文章名称">
+            <div class="MainNavList">
+                <div class="MainNavListTitle">最新文章</div>
+                <%for(let i=0;i<=5;i++){%>
+                <div class="MainNavListBlogs">
+                    <a href='<%=allBlog[i].src%>'>
+                        <%=allBlog[i].title%>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <div class="MainNavList">
+                <div class="MainNavListTitle">博客专栏</div>
+                <%for(let i=0;i<allClssify.length;i++){%>
+                <div class="MainNavListBlogs">
+                    <a href='<%=allClssify[i].src%>'>
+                        <%=allClssify[i].classify%>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <div class="MainNavList">
+                <div class="MainNavListTitle">归档</div>
+                <div class="MainNavListBlogs">2018年8月</div>
+                <div class="MainNavListBlogs">2018年9月</div>
+                <div class="MainNavListBlogs">2018年10月</div>
+                <div class="MainNavListBlogs">2018年11月</div>
+                <div class="MainNavListBlogs">2018年12月</div>
+                <div class="MainNavListBlogs">2019年1月</div>
+                <div class="MainNavListBlogs">2019年2月</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Support a lot&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/blogs">博客</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="/album">相册</a>&nbsp;&nbsp;| &nbsp;&nbsp;
+        <a href="/LeavingMessage">留言板</a><br/>
+        本站总访问量：365413 次<br/>
+        Copyright © <a href="#">北海&情书</a>. Copyright ownership, piracy must be investigated
+    </div>
+    <div class="toTop" onclick="totop()">
+        <img src="/images/toTop.png" alt="">
+    </div>
+    </body>
+</html>

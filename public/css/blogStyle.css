@@ -1,0 +1,51 @@
+blockquote{
+    padding: 15px 20px;
+    border: solid 1px #dddfe4;
+    border-left: 8px solid #dddfe4;
+    background-color: #eef0f4;
+    line-height: 30px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+pre{
+    background-color: #fbebd4;
+    padding: 20px;
+    border-radius: 5px;
+    line-height: 25px;
+    color: #84613d;
+    font-size: 18px;
+    margin: 10px 0;
+}
+.BlogsContentTitle{
+    width: 100%;
+    height:60px;
+    line-height: 60px;
+    font-size: 30px;
+    font-weight: bold;
+}
+p{
+    line-height: 30px;
+}
+p span{
+    background-color: transparent!important;
+}
+.BlogsContentTime{
+    width: 100%;
+    height:40px;
+    line-height: 30px;
+    color: gray;
+    border-bottom: solid 1px darkgrey;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.BlogsContentTime a{
+    text-decoration: none;
+    color: #D8E2EB;
+}
+.BlogsContentTime a:hover{
+    text-decoration: underline;
+    color: gray;
+}
+.BlogsContentText div{
+    line-height: 30px;
+}
