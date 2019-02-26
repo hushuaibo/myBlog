@@ -55,4 +55,4 @@ app.use(function (req,res) {
 });
 
 //端口监听
-app.listen('8889','127.0.0.1');
+app.listen('8888','127.0.0.1');
